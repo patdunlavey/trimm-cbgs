@@ -1,7 +1,7 @@
-display_name ,stub           ,dropdown_parent
-Home         ,/
-Browse       ,/browse.html
-Subjects     ,/subjects.html
-Timeline     ,/timeline.html
-Data         ,/data.html
-About        ,/about.html
+display_name,stub,dropdown_parent
+Home,/
+browse,/browse.html
+subjects,/subjects.html
+Timeline,/timeline.html
+data,/data.html
+About,/about.html
