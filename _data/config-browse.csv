@@ -1,4 +1,5 @@
 field,display_name,btn,hidden,sort_name
 created,Date,,,Date
+subject,Subjects,true
 medium,Media,true
-subject,,true
+size,Size
