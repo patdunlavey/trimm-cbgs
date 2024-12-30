@@ -62,7 +62,7 @@ metadata-csv: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRW7jVpxfcpI4uGyI
 # (this is done automatically by gh-pages build)
 #
 # dev mode turns on ability to change metadata
-development-mode: false
+development-mode: true
 # ignore stuff
 exclude: [docs/, Rakefile, README.md, LICENSE]
 # compress CSS output
