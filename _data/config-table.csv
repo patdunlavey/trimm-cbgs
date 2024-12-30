@@ -1,5 +1,7 @@
 field,display_name
 title,Title
-date,Date
-description,Description
+created,Date
 subject,Subjects
+notes,Notes
+signed,Signed by the artist
+medium,Media

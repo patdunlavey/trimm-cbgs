@@ -1,7 +1,8 @@
 field,index,display
 title,true,true
 date,true,true
-creator,true,false
 description,true,true
 subject,true,true
+medium,true,true
+shelf,true,true
 location,true,false
