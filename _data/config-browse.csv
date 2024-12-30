@@ -1,6 +1,4 @@
 field,display_name,btn,hidden,sort_name
-title,Title,true
-date,Date,,,Date
-creator,Creator,,,
+created,Date,,,Date
+medium,Media,true
 subject,,true
-location,,true
