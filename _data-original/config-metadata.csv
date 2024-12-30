@@ -1,0 +1,23 @@
+field,display_name,browse_link,external_link
+title,Title,
+creator,Creator,
+date,Date Created,
+shelf,Shelf,
+size,Size,
+created,Created Date,
+medium,Media,
+signed,Signed by the artist,
+signature_note,Signature Note,
+condition,Condition
+notes,Notes,
+description,Description,
+subject,Subjects,true
+location,Location
+latitude,Latitude
+longitude,Longitude
+source,Source
+identifier,Source Identifier,,
+type,Type,
+format,Format,
+rights,Rights,
+rightsstatement,Rights Statement,,true
