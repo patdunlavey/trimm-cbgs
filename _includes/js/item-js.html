@@ -4,13 +4,13 @@
 {%- assign fields = site.data.config-metadata -%}
 {%- assign stubs = site.data.config-nav | map: 'stub' | join: ';' -%}
 <script>
-/* function to find links to objects from filename field */ 
+/* function to find links to objects from filename field */
 function findFileLink(record) {
     var fileLink = record.filename.includes('/') ? record.filename : "{{ '/objects/' | relative_url }}" + record.filename;
     return fileLink;
 }
-/* function to create item page features */ 
-function displayItem(record, prev_id, next_id, compound_object) { 
+/* function to create item page features */
+function displayItem(record, prev_id, next_id, compound_object) {
 
     /* add item title */
     var objectTitle = record.title;
@@ -29,8 +29,8 @@ function displayItem(record, prev_id, next_id, compound_object) {
     }
     document.getElementById("item-format").innerHTML = itemFormat;
     document.getElementById("item-title").innerHTML = record.format.includes('record') ? objectTitle : objectTitle + '<a href="#item-metadata" class="ms-5 btn btn-sm btn-outline-dark small">Item Info <svg class="bi icon-sprite" role="img" aria-label="Jump to Item Info"><use xlink:href="{{ "/assets/lib/cb-icons.svg" | relative_url }}#arrow-down"/></svg></a>';
-    
-    /* add object */ 
+
+    /* add object */
     var format = "" + record.format;
     var objectLink = findFileLink(record);
     var itemImage, itemLink;
@@ -182,7 +182,8 @@ function displayItem(record, prev_id, next_id, compound_object) {
             addItem(compoundItem[i]);
 
             /* create and add timeline button and map button; add item download link button*/
-            addButtons(compoundItem[i]);
+            // PD: We don't want any of these buttons.
+            // addButtons(compoundItem[i]);
 
             /* add multiples or compound objects to page */
             if (format.includes('multiple')) {
@@ -267,7 +268,7 @@ function displayItem(record, prev_id, next_id, compound_object) {
                                     <div class="mb-2">
                                         ${compoundThumb}
                                     </div>
-                                    
+
                                     <!-- child object modal button -->
                                     <a id="item-${i+1}"
                                         role="button"
@@ -296,14 +297,15 @@ function displayItem(record, prev_id, next_id, compound_object) {
     };
 
     /* add items to page; generate compound objects if applicable */
-    if(compound_object.length > 0) { 
+    if(compound_object.length > 0) {
         compoundItems(compound_object);
     } else {
         addItem(record);
     }
 
     /* add timeline, map, and download button links */
-    addButtons(record);
+    // PD: We don't want any of these buttons.
+    // addButtons(record);
 
     /* add content to item display area; page layout depends on item format */
     if (compound_object.length > 0 && !record.format.includes('multiple')) {
@@ -367,7 +369,7 @@ function displayItem(record, prev_id, next_id, compound_object) {
         `;
     }
     document.getElementById("item-content").innerHTML = itemContent;
-    
+
     /* add item metadata */
     document.getElementById("item-metadata").innerHTML = generateMetadata(record);
 
@@ -468,8 +470,8 @@ var itemPageId = url.searchParams.get('id');
 var itemPageInit = function (cb_items) {
 
     /* find the item by objectid */
-    var record_index = cb_items.findIndex(item => item.objectid == itemPageId); 
-    /* find any related children if applicable */ 
+    var record_index = cb_items.findIndex(item => item.objectid == itemPageId);
+    /* find any related children if applicable */
     var child_records = cb_items.filter(item => item.parentid == itemPageId);
 
     if (record_index != -1 && cb_items[record_index].parentid) {
@@ -481,14 +483,14 @@ var itemPageInit = function (cb_items) {
         // display item if it exists
         var prev_id, next_id;
         {% if site.data.theme.browse-buttons == true %}
-        // find parents only 
+        // find parents only
         var parent_items = cb_items.filter(item => !item.parentid );
-        var parent_record_index = parent_items.findIndex(item => item.objectid == itemPageId); 
+        var parent_record_index = parent_items.findIndex(item => item.objectid == itemPageId);
         // find next and previous record
         var last = parent_items.length - 1;
         if (parent_record_index === 0) {
             prev_id = parent_items[last].objectid;
-        } else { 
+        } else {
             prev_id = parent_items[parent_record_index - 1].objectid;
         }
         if (parent_record_index === last) {

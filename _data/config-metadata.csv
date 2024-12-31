@@ -1,11 +1,8 @@
 field,display_name,browse_link,external_link
 title,Title,
 creator,Creator,
-date,Date Created,
-shelf,Shelf,
-box,Box,
+created,Date,
 size,Size,
-created,Created Date,
 medium,Media,
 signed,Signed by the artist,
 signature_note,Signature Note,
@@ -18,7 +15,8 @@ latitude,Latitude
 longitude,Longitude
 source,Source
 identifier,Source Identifier,,
-type,Type,
-format,Format,
 rights,Rights,
 rightsstatement,Rights Statement,,true
+objectid,Identifier
+shelf,Shelf,
+box,Box,
