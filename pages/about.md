@@ -10,6 +10,7 @@ credits: false
 
 {% include feature/jumbotron.html objectid="291" %}
 
-## About the Wayne Trimm Archive
+## Welcome to the Wayne Trimm Archive
+Our purpose is to celebrate the legacy of Wayne Trimm's Nature and Wildlife Art, and to help those who appreciate his work to help us find homes for the paintings and drawings left in his estate. Our goal is to have found homes for much of this art by the end of 2025. If you are interested in inquiring about any pieces that you see, or just want to reach out to us, please {% raw %}{% include feature/button.html text="Contact Us" link="https://forms.gle/Rt9yVaxir8EehFUZA" color="success" %}{% endraw %}
 
-- To be written!! Text and images needed.
+More to come!

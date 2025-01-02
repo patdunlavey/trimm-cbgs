@@ -19,7 +19,7 @@
 </style>
 <div id="home-banner" class="container-fluid mb-0 p-0">
     <div id="home-title-box" class="position-relative" >
-        <div class="p-2 text-center text-white bg-dark bg-opacity-75">
+        <div class="p-2 text-center text-white bg-dark bg-opacity-50">
             {% if site.organization-logo-nav %}
             <a class="d-none d-md-block" href="{{ site.organization-link }}" target="_blank" rel="noopener">
                 <img id="home-banner-logo" src="{{ site.organization-logo-nav | relative_url }}" alt="{{ site.organization-name }} home" >
@@ -33,10 +33,10 @@
     </div>
 </div>
 {% unless site.data.theme.featured-image contains '/' %}
-<script> 
+<script>
 // set up featured image
 var featuredImageInt = function (cb_items) {
-    // find item by objectid 
+    // find item by objectid
     var featuredItem = cb_items.find(item => item.objectid == "{{ site.data.theme.featured-image }}");
     if (featuredItem) {
         if (featuredItem.youtubeid) {
@@ -59,7 +59,7 @@ includeFunctions.push(featuredImageInt);
 <div class="container">
     <div class="row align-items-center">
         <div id="title" class="{% if site.organization-logo-banner %}col-md-9{% else %}col-12{% endif %}">
-            <h1><a class="text-dark font-weight-normal" href="{{ site.baseurl }}/" >{{ site.title }}</a></h1>	 
+            <h1><a class="text-dark font-weight-normal" href="{{ site.baseurl }}/" >{{ site.title }}</a></h1>
             {% if site.tagline %}<p>{{ site.tagline }}</p>{% endif %}
         </div>
         {% if site.organization-logo-banner %}
