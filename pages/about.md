@@ -19,7 +19,7 @@ Wayne and Lynn Trimm with baby Steven Trimm and golden eagle, ca 1949
 
 - Bio (to be written)
 
-<img src="/images/IMG_0746.JPG" style="max-width:300px" title="Wayne Trimm in 2008">
+<img src="/images/IMG_0746.JPG" style="max-width:300px" title="Wayne Trimm in 2010">
 
 - About this archive (to be written)
   - the difficulty of dating signatures
