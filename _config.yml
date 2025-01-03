@@ -25,7 +25,7 @@ title: Wayne Trimm Archive
 tagline: A Legacy of Nature and Wildlife Art
 # description appears in meta tags and other locations
 # this description might appear in search result lists, keep around 160 characters maxCollectionBuilder-Sheets is a template for creating simple digital exhibit websites by loading collection metadata directly from a CSV, designed for teaching digital library skills.
-description: "Nature and Wildlife Art by Wayne Trimm, 1922-2017.</br>Contact Melodee James for further information or to discuss acquiring artwork from this collection using our <a href='https://forms.gle/Rt9yVaxir8EehFUZA'>Contact Form</a>"
+description: "Nature and Wildlife Art by Wayne Trimm, 1922-2017.</br>Contact Melodee James for further information or to discuss acquiring artwork from this collection using our <a class='external_link btn btn-sm btn-primary m-1' href='https://forms.gle/Rt9yVaxir8EehFUZA' target='_blank'>Contact Form</a>"
 # creator of the digital collection, to appear in meta tags; we typically use our GitHub usernames but feel free to just use your name
 author: "Melodee James"
 
