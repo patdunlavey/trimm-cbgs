@@ -39,7 +39,7 @@ function displayItem(record, prev_id, next_id, compound_object) {
     var itemDisplay, itemDownload;
     function addItem(item) {
         if (item.format.includes('image')) {
-            itemDisplay = '<a class="spotlight gallery-img" data-download="false" href="' + findFileLink(item) + '"><img class="img-fluid" src="' + findFileLink(item) + '" alt="' + item.title + '">';
+            itemDisplay = '<a class="spotlight gallery-img" data-download="true" href="' + findFileLink(item) + '"><img class="img-fluid" src="' + findFileLink(item) + '" alt="' + item.title + '">';
             itemDisplay += record.format.includes('multiple') ? '</a>' : '<div><small class="text-dark">Click to view full screen</small></div></a>';
             itemDownload = '<a href="' + findFileLink(item) + '" target="_blank" rel="noopener" class="btn btn-outline-primary" title="Object download">Download ' + item.format.split("/").pop().toUpperCase() + '</a>';
         } else if (item.format.includes('pdf')) {
@@ -125,7 +125,7 @@ function displayItem(record, prev_id, next_id, compound_object) {
             {% endif %}
         }
         {%- endif -%}
-        itemLink += item.format.includes('compound_object') || item.format.includes('multiple') ? compoundDownload : (itemDownload ?? "");
+        itemLink += item.format.includes('compound_object') || item.format.includes('multiple') ? compoundDownload : itemDownload;
         itemLink += '</div>'
     };
 
