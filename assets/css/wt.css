@@ -33,3 +33,8 @@
     max-width: 1320px !important;
   }
 }
+
+/* Horrible hack to hide the "undefined" download link block in the object viewer. I know I'm going to regret this, but hopefully will have a better idea later. */
+a.spotlight.gallery-img+div.card-body {
+  display: none;
+}
