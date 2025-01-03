@@ -359,8 +359,7 @@ function displayItem(record, prev_id, next_id, compound_object) {
             </div>
         `;
     } else {
-        if($itemLink) {
-            itemContent = `
+        itemContent = `
             <div class="card mb-4 text-center">
                 ${itemImage}
                 <div class="card-body">
@@ -368,15 +367,7 @@ function displayItem(record, prev_id, next_id, compound_object) {
                 </div>
             </div>
         `;
-        }
-        else {
-             itemContent = `
-            <div class="card mb-4 text-center">
-                ${itemImage}
-            </div>
-        `;
-        }
-     }
+    }
     document.getElementById("item-content").innerHTML = itemContent;
 
     /* add item metadata */
