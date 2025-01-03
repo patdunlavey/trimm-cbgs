@@ -3,11 +3,11 @@
 <title>{{ page.title | escape }} | {{ site.title | escape }}</title>
 <link rel="shortcut icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
 <!--
-  _____     ____        __  _           ___       _ __   __       
+  _____     ____        __  _           ___       _ __   __
  / ___/__  / / /__ ____/ /_(_)__  ___  / _ )__ __(_) /__/ /__ ____
 / /__/ _ \/ / / -_) __/ __/ / _ \/ _ \/ _  / // / / / _  / -_) __/
-\___/\___/_/_/\__/\__/\__/_/\___/_//_/____/\_,_/_/_/\_,_/\__/_/   
-   
+\___/\___/_/_/\__/\__/\__/_/\___/_//_/____/\_,_/_/_/\_,_/\__/_/
+
     built with CollectionBuilder-Sheets
     https://github.com/CollectionBuilder/collectionbuilder-sheets
 -->
@@ -27,10 +27,11 @@
 
 <!-- load custom css last to allow overrides -->
 <link rel="stylesheet" href="{{ '/assets/css/cb.css' | relative_url }}" type="text/css">
+<link rel="stylesheet" href="{{ '/assets/css/wt.css' | relative_url }}" type="text/css">
 
-{% comment %} 
+{% comment %}
     Meta tags and analytics are adding during production build ONLY.
-    Production build environment is automatically used on gh-pages. 
+    Production build environment is automatically used on gh-pages.
 {% endcomment %}
 {%- if jekyll.environment == "production" -%}
 {% if site.noindex == true or page.noindex == true or layout.noindex == true %}<meta name="robots" content="noindex">{% endif %}
@@ -39,8 +40,8 @@
 {% endif %}
 
 <script>
-    // include functions variable, necessary for Sheets pageinit to work! 
-    var includeFunctions = [ ]; 
+    // include functions variable, necessary for Sheets pageinit to work!
+    var includeFunctions = [ ];
 </script>
 
 <!-- Last build date: {{ site.time | date: "%Y-%m-%d" }} -->
