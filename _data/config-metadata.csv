@@ -1,5 +1,6 @@
 field,display_name,browse_link,external_link
 title,Title,
+disposition,Disposition,
 creator,Creator,
 created,Date,
 size,Size,

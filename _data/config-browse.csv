@@ -1,4 +1,5 @@
 field,display_name,btn,hidden,sort_name
+disposition,Disposition
 created,Date
 date,Date,,true,Date
 subject,Subjects,true
