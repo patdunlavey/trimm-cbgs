@@ -63,7 +63,11 @@ function makeCard(obj) {
       }
     }
     {% else %}
+    {% if f.field == "disposition" %}
+    card += '<span class="disposition-value">' + obj[{{ f.field | jsonify }}] + '</span>';
+    {% else %}
     card += obj[{{ f.field | jsonify }}];
+    {% endif %}
     {% endif %}
     {% unless forloop.last %}card += '<br>';{% endunless %}
     }
