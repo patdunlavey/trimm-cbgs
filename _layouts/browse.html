@@ -19,6 +19,18 @@ custom-foot: js/browse-js.html
     </div>
     <div class="col-md-2">
         <div class="dropdown">
+            <button class="btn btn-secondary mt-1 dropdown-toggle" type="button" id="browseDispositionButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="font-weight-bold" id="dispositionFilterLabel">All Items</span>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="browseDispositionButton">
+                <button class="dropdown-item disposition-filter-item active" data-filter="">All Items</button>
+                <button class="dropdown-item disposition-filter-item" data-filter="__available__">Items for sale</button>
+                <button class="dropdown-item disposition-filter-item" data-filter="__not_for_sale__">Items not for sale</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="dropdown">
             <button class="btn btn-secondary mt-1 dropdown-toggle" type="button" id="browseSortButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Sort by <span class="font-weight-bold" id="sortFilter">Random</span>
             </button>

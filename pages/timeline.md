@@ -6,3 +6,5 @@ permalink: /timeline.html
 ---
 
 ## Collection Timeline
+
+*Note that many of these dates are rough estimates or guesses.*

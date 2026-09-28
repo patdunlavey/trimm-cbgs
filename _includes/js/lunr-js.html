@@ -6,10 +6,23 @@
 /* search function */
 function lunr_search () {
   var resultdiv = document.querySelector('#lunrResults');
-  var query = document.querySelector('#lunrSearchBox').value;
-  /* basic search that supports operators */
-  var result = idx.search(query); 
+  var query = document.querySelector('#lunrSearchBox').value.trim();
+  var dispositionSel = document.getElementById('dispositionFilter');
+  var dispositionVal = dispositionSel ? dispositionSel.value : '';
   resultdiv.innerHTML = "";
+  /* get base result set: lunr search if query, otherwise all items */
+  var result = query
+    ? idx.search(query)
+    : Object.keys(cb_items).map(function(i) { return { ref: i }; });
+  /* apply disposition filter */
+  if (dispositionVal) {
+    result = result.filter(function(item) {
+      var rec = cb_items[item.ref];
+      if (dispositionVal === '__available__') return !rec.disposition || !rec.disposition.trim();
+      if (dispositionVal === '__not_for_sale__') return rec.disposition && rec.disposition.trim();
+      return true;
+    });
+  }
   var newresults = '<tr><td><h4 class="mt-3">' + result.length + ' Result(s) found</h4></td></tr>';
   for (var item in result) {
     var ref = result[item].ref;
@@ -70,12 +83,15 @@ var  searchPageInit = function (cb_items) {
   }
   // set up lunr store
   createIndex(cb_items);
-  // get query from url if there
+  var dispositionSel = document.getElementById('dispositionFilter');
+  if (dispositionSel) { dispositionSel.addEventListener('change', function() { lunr_search(); }); }
+  // pre-fill search box from URL if present
   if (window.location.search) {
     var queryString = decodeURIComponent(window.location.search.substring(1).split("=")[1]);
     document.querySelector('#lunrSearchBox').value = queryString;
-    lunr_search ();
   }
+  // show initial results (all items if no query)
+  lunr_search();
 
 }
 

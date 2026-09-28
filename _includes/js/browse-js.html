@@ -117,6 +117,14 @@ function shuffle(array) {
 function filterItems(arr,q) {
   // show loading icon
   loadingIcon.classList.remove("d-none");
+  // apply disposition filter
+  var activeDisposition = document.querySelector('.disposition-filter-item.active');
+  var dispositionVal = activeDisposition ? activeDisposition.dataset.filter : '';
+  arr = arr.filter(function(item) {
+    if (dispositionVal === '__available__') return !item.disposition || !item.disposition.trim();
+    if (dispositionVal === '__not_for_sale__') return item.disposition && item.disposition.trim();
+    return true;
+  });
   // dont filter if no q
   if (q=="") {
     var filteredItems = arr;
@@ -161,6 +169,16 @@ var browsePageInit = function (cb_items) {
   {% endunless %}
   /* randomize items once at page load */
   shuffle(cb_items);
+  var dispositionItems = document.querySelectorAll('.disposition-filter-item');
+  var dispositionLabel = document.querySelector('#dispositionFilterLabel');
+  dispositionItems.forEach(function(button) {
+    button.addEventListener('click', function() {
+      dispositionItems.forEach(function(item) { item.classList.remove('active'); });
+      button.classList.add('active');
+      dispositionLabel.innerHTML = button.textContent;
+      filterItems(cb_items, query);
+    });
+  });
   /* filter if hash in initial URL */
   if(window.location.hash) {
     query = decodeURIComponent(location.hash.substr(1));
