@@ -83,7 +83,7 @@ function displayItem(record, prev_id, next_id, compound_object) {
             fields += '<dt class="field">{{ f.display_name }}:</dt> <dd class="field-value">' + browseLinks + '</dd>';
         }
         {%- else -%}
-        if (item[{{ f.field | jsonify }}]) { fields += '<dt class="field">{{ f.display_name }}:</dt> <dd class="field-value">{% if f.external_link == "true" %}<a href="' + item[{{ f.field | jsonify }}] + '" target="_blank" rel="noopener">' + item[{{ f.field | jsonify }}] + '</a>{% else %}' + item[{{ f.field | jsonify }}] + '{% endif %}</dd>'; }
+        if (item[{{ f.field | jsonify }}]) { fields += '<dt class="field">{{ f.display_name }}:</dt> <dd class="field-value">{% if f.external_link == "true" %}<a href="' + item[{{ f.field | jsonify }}] + '" target="_blank" rel="noopener">' + item[{{ f.field | jsonify }}] + '</a>{% elsif f.field == "disposition" %}<strong>' + item[{{ f.field | jsonify }}] + '</strong>{% else %}' + item[{{ f.field | jsonify }}] + '{% endif %}</dd>'; }
         {% endif %}{% endfor %}
         fields += '</dl>';
         return fields;
