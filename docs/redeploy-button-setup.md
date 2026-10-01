@@ -1,6 +1,6 @@
-# Google Sheet "Redeploy Website" Button
+# Google Sheet "Redeploy Website" Menu
 
-Clicking this button commits a timestamp to `.deploy-trigger` in the GitHub repo, which triggers GitHub Pages to rebuild the site with the latest Google Sheet data.
+A custom menu appears in the Google Sheet menu bar for authorized users only. Clicking it commits a timestamp to `.deploy-trigger` in the GitHub repo, which triggers GitHub Pages to rebuild the site with the latest Google Sheet data.
 
 ---
 
@@ -11,6 +11,17 @@ In the Google Sheet: **Extensions → Apps Script**
 Paste the following and save (Ctrl+S):
 
 ```javascript
+function onOpen() {
+  var email = Session.getActiveUser().getEmail();
+  var authorized = ['patdunlavey@gmail.com', 'gourdbox21ljt@gmail.com'];
+  if (authorized.indexOf(email) !== -1) {
+    SpreadsheetApp.getUi()
+      .createMenu('Wayne Trimm Archive')
+      .addItem('↺ Redeploy Website', 'redeployToGitHub')
+      .addToUi();
+  }
+}
+
 function redeployToGitHub() {
   var props = PropertiesService.getScriptProperties();
   var token = props.getProperty('GITHUB_TOKEN');
@@ -53,6 +64,8 @@ function redeployToGitHub() {
 }
 ```
 
+Replace the two email addresses in `onOpen()` with the actual authorized emails.
+
 ---
 
 ## Step 2: Store the GitHub Token
@@ -69,21 +82,20 @@ Still in Apps Script: **Project Settings (gear icon) → Script Properties → A
 
 ---
 
-## Step 3: Add the Button to the Sheet
+## Step 3: Authorize the Script
 
-1. In the Google Sheet, go to **Insert → Drawing**
-2. Draw a rectangle shape, add text like **↺ Redeploy Website**
-3. Click **Save and Close**
-4. Click the **⋮ menu** on the drawing → **Assign script**
-5. Type `redeployToGitHub` and click **OK**
+Close and reopen the Google Sheet. A **"Wayne Trimm Archive"** menu will appear in the menu bar. The first time you click **↺ Redeploy Website**, Google will ask you to authorize the script — click through once and it will never ask again.
+
+Other editors who open the sheet will not see the menu at all.
 
 ---
 
 ## How It Works
 
-Clicking the button calls `redeployToGitHub()`, which:
-1. Fetches the current `.deploy-trigger` file from the GitHub API (needed to get its SHA)
-2. Writes a new timestamp to the file and pushes a commit
-3. GitHub Pages detects the new commit and rebuilds the site
+- `onOpen()` runs when the sheet is opened and adds the menu only for authorized email addresses
+- Clicking the menu item calls `redeployToGitHub()`, which:
+  1. Fetches the current `.deploy-trigger` file from the GitHub API (needed to get its SHA)
+  2. Writes a new timestamp to the file and pushes a commit
+  3. GitHub Pages detects the new commit and rebuilds the site
 
-The site typically rebuilds within 1–2 minutes of clicking the button.
+The site typically rebuilds within 1–2 minutes of clicking the menu item.
